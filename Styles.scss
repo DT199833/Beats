@@ -1,0 +1,111 @@
+@import "variables";
+@import "keyframes";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    body{
+        font-family: sans-serif;
+
+        i,svg{
+        pointer-events: none;
+        }
+        .sequencer{
+            @include flex(center, center,column);
+            min-height: 100vh;
+            
+            .kick-track,.snare-track,.hihat-track{
+                    @include flex(space-between,center,row);
+                    width:70%;
+                    margin-top:5rem;
+                .kick,.snare,.hihat{
+                    display:flex;
+                    .kick-pad,.snare-pad,.hihat-pad{
+                        width: 3.4rem;
+                        height: 3.4rem;
+                        margin:1rem 0.5rem;
+                        cursor: pointer;
+                    }
+                    .kick-pad{
+                        background:rgb(240, 137, 137);
+                    }
+                    .kick-pad.active{
+                        background:red;
+                    }
+                    .snare-pad{
+                        background:rgb(243, 236, 138);
+                    }
+                    .snare-pad.active{
+                        background:yellow;
+                    }
+                    .hihat-pad{
+                        background:rgb(125, 127, 238);
+                    }
+                    .hihat-pad.active{
+                        background: blue;
+                    }
+                }
+            }
+            .controls{
+                @include flex(space-between,center,row);
+                flex: 1;
+                margin: 0 2.4rem;
+
+                button{
+                    padding:1rem;
+                    border: none;
+                    background: rgb(88, 88, 88);
+                    border-radius: 49%;
+                    color:white;
+                    font-size: 1rem;
+                    cursor:pointer; 
+                    transition: all 0.4s ease;
+                }
+                .mute.active{
+                    background:pink;
+                }
+                
+            }
+            .pad{
+                transition: all 0.5s ease;
+            }
+            .play{
+                padding:1rem 2rem;
+                font-size: 1.5rem;
+                background: rgb(88,88,88);
+                color: white;
+                border:none;
+                border-radius:50%;
+                cursor: pointer;
+                margin: 3rem 0 0 0;
+            }
+        }
+        select{
+            padding:0.8rem;
+            font-size: 1rem;
+            margin:0 1rem 0 0;
+        }
+        .tempo{
+            margin: 3rem;
+            width:30%;
+            .tempo-slider{
+                padding:0.3rem;
+                -webkit-appearance: none;
+                margin:1rem 0rem;
+                width:100%;
+                position: relative;
+                background:rgb(88, 88, 88);
+                cursor: pointer;
+                border-radius: 1rem;
+            }
+            p{
+                font-size:1rem;
+                margin:2rem;
+                text-align: center;
+            }
+        }
+
+    }
+}
+
